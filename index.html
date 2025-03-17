@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestion des Pompiers</title>
+  <!-- Inclusion du framework Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Onglet Administrateur -->
+  <section id="admin-tab" class="tab active">
+    <!-- Header (hero) bleu contenant le titre -->
+    <div class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="has-text-centered">Interface Administrateur</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Contenu de l'onglet Administrateur -->
+    <div class="container full-height">
+      <div class="view admin-view">
+        <div id="admin-dashboard" class="columns is-multiline is-centered">
+          <!-- Les cartes des pompiers seront générées ici -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onglet Pompier -->
+  <section id="pompier-tab" class="tab">
+    <!-- Header (hero) bleu contenant le titre et le select pour le prénom -->
+    <div class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="has-text-centered">Interface Pompier</h2>
+          <div class="field">
+            <label class="label">Sélectionnez votre nom</label>
+            <div class="control">
+              <div class="select">
+                <select id="pompier-select">
+                  <!-- Options générées dynamiquement -->
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contenu de l'onglet Pompier -->
+    <div class="container full-height">
+      <div class="view pompier-view">
+        <div class="box">
+          <!-- Champ pour uploader la photo -->
+          <div class="field">
+            <label class="label">Uploader votre photo</label>
+            <div class="control">
+              <input class="input" type="file" id="photo-file" accept="image/*">
+            </div>
+          </div>
+          <!-- Dropdown pour changer le statut -->
+          <div class="field">
+            <label class="label">Sélectionnez votre statut</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="status-select">
+                  <option value="disponible">Disponible</option>
+                  <option value="indisponible">Indisponible</option>
+                  <option value="absent">Absent</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Champ pour saisir le commentaire -->
+          <div class="field">
+            <label class="label">Votre commentaire</label>
+            <div class="control">
+              <textarea class="textarea" id="comment-text" placeholder="Votre commentaire ici"></textarea>
+            </div>
+          </div>
+          <!-- Bouton pour valider le commentaire -->
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" id="comment-submit">Valider</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bouton de navigation (flèche) en bas de page -->
+  <div class="nav-arrow">
+    <button id="toggle-tab" class="button is-info">
+      <span id="toggle-label">Passer à l'onglet Administrateur</span>
+    </button>
+  </div>
+
+  <!-- Modal pour afficher le commentaire dans l'interface administrateur -->
+  <div class="modal" id="comment-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title" id="modal-firefighter-name">Nom</p>
+        <button class="delete" aria-label="close" id="modal-close"></button>
+      </header>
+      <section class="modal-card-body" id="modal-comment">
+        <!-- Contenu du commentaire -->
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button" id="modal-close-footer">Fermer</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

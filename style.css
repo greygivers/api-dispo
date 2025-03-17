@@ -1,0 +1,147 @@
+/* Assurer que html et body occupent 100% de la hauteur */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Chaque onglet (tab) occupe toute la page */
+  .tab {
+    display: none;
+    height: 100%;
+  }
+  .tab.active {
+    display: block;
+  }
+  
+  /* Le contenu (hors header) occupe l'espace restant */
+  .full-height {
+    height: calc(100% - 200px); /* Ajustez selon la hauteur du hero */
+  }
+  
+  /* La partie hero en bleu (is-info) */
+  .hero {
+    /* Vous pouvez ajuster la hauteur du hero ici si besoin */
+  }
+  
+  /* Styles pour les vues */
+  .view {
+    padding: 10px;
+    background: #fff;
+    overflow-y: auto;
+  }
+  
+  /* Interface Administrateur : centrer le contenu */
+  .admin-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Augmentation de la taille et modification de la couleur du titre dans les cartes de l'interface administrateur */
+  .admin-view .card .media-content .title {
+    font-size: 1rem;
+    color: #363636;
+  }
+  
+  /* Styles pour les cartes utilisant Bulma Media */
+  .card {
+    margin-bottom: 1rem;
+    position: relative; /* Pour positionner l'indicateur en absolu */
+  }
+  
+  /* Dans l'interface admin, on place l'avatar au-dessus et le statut en dessous */
+  .admin-view .card .media {
+    flex-direction: column;
+    align-items: center;
+  }
+  .admin-view .card .media-left {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .admin-view .card .media-content {
+    text-align: center;
+  }
+  
+  /* Pour conserver l'image ronde sans déformation */
+  .image.is-64x64 img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* Styles pour les tags de statut */
+  .tag {
+    font-size: 0.9rem;
+    white-space: nowrap;      /* Empêche le retour à la ligne */
+    overflow: hidden;         /* Cache le texte débordant */
+    text-overflow: ellipsis;  /* Ajoute des points de suspension */
+    padding: 0.2em 0.5em;      /* Réduit le padding pour limiter la largeur */
+    display: inline-block;    
+    max-width: 80px;          /* Limite la largeur */
+    box-sizing: border-box;   /* Inclut le padding dans la largeur */
+  }
+  
+  .tag.disponible {
+    background-color: #23d160;
+    color: white;
+  }
+  
+  .tag.indisponible {
+    background-color: #ffdd57;
+    color: black;
+  }
+  
+  .tag.absent {
+    background-color: #ff3860;
+    color: white;
+  }
+  
+  /* Indicateur pour un commentaire non lu (petit "1" dans un rond rouge) placé en haut à gauche de la carte */
+  .unread-indicator {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ff3860;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+  }
+  
+  /* Bouton de navigation en bas de page */
+  .nav-arrow {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+
+  @media screen and (max-width: 769px){
+    .columns.is-multiline{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+
+  @media screen and (max-width: 500px){
+    .columns.is-multiline{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 280px){
+    .columns.is-multiline{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+ 
